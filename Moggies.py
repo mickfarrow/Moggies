@@ -1,7 +1,7 @@
 #main menu
     
 
-def writeMenu():
+def getOption():
     print("Main Menu-")
     print("Option A: 1 to 24 months")
     print("Option B: 3 to 18 years")
@@ -9,7 +9,7 @@ def writeMenu():
 
     option = (input("Select menu option (Enter A, B or X): "))
     print("")
-    return option
+    return option.upper()
 
 def writeResult(lifeStage, humanAge):
     print("")
@@ -17,23 +17,21 @@ def writeResult(lifeStage, humanAge):
     print ("Human age in years:", humanAge)
     print("")
 
-option = writeMenu().upper()
+option = getOption()
 
 while option not in "X":
     if option == "A":
         catAge = int(input("Enter cat age in months: "))
         if catAge < 4:
             humanAge = catAge
-            writeResult("Kitten", humanAge)
-            option = writeMenu().upper()
+            writeResult("Kitten", humanAge)            
         elif catAge > 3 and catAge < 8:
             humanAge = catAge + 4
-            writeResult("Kitten", humanAge)
-            option = writeMenu().upper()
+            writeResult("Kitten", humanAge)            
         elif catAge > 7 and catAge < 25:
             humanAge = catAge + 3
             writeResult("Junior", humanAge)
-            option = writeMenu().upper()
+        option = getOption()
 
     elif option == "B":
         catAge = int(input("Enter cat age in years: "))
@@ -47,7 +45,7 @@ while option not in "X":
         elif catAge >= 11 and catAge <= 14:
             lifeStage="Senior"
         writeResult(lifeStage, humanAge)
-        option = writeMenu().upper()
+        option = getOption()
         
 
 
