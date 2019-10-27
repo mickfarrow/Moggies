@@ -1,163 +1,58 @@
-Python 3.6.6 (v3.6.6:4cf1f54eb7, Jun 27 2018, 03:37:03) [MSC v.1900 64 bit (AMD64)] on win32
-Type "copyright", "credits" or "license()" for more information.
->>> 
-============ RESTART: E:\Dev\ZakFarrow\COMP101\Farrow_Zak-CA03.py ============
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): a
-Enter cat age in months: 23
-Human age in years: 26
-Enter cat age in months: 34
-Enter cat age in months: 11
-Human age in years: 14
-Enter cat age in months: x
-Traceback (most recent call last):
-  File "E:\Dev\ZakFarrow\COMP101\Farrow_Zak-CA03.py", line 19, in <module>
-    catAge = int(input("Enter cat age in months: "))
-ValueError: invalid literal for int() with base 10: 'x'
->>> 
-============ RESTART: E:\Dev\ZakFarrow\COMP101\Farrow_Zak-CA03.py ============
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): a
-Enter cat age in months: 12
-Human age in years: 15
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): b
-Enter cat age in years: 12
-Human age in years: 64
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): 
-============ RESTART: E:\Dev\ZakFarrow\COMP101\Farrow_Zak-CA03.py ============
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): a
-Enter cat age in months: 3
-Traceback (most recent call last):
-  File "E:\Dev\ZakFarrow\COMP101\Farrow_Zak-CA03.py", line 23, in <module>
-    writeResult(humanAge)
-TypeError: writeResult() missing 1 required positional argument: 'humanAge'
->>> 
-============ RESTART: E:\Dev\ZakFarrow\COMP101\Farrow_Zak-CA03.py ============
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): a
-Enter cat age in months: 3
-Human age in years: 3
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): 
-============ RESTART: E:\Dev\ZakFarrow\COMP101\Farrow_Zak-CA03.py ============
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): a
-Enter cat age in months: 3
-Human age in years: 3
+#main menu
+    
 
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): 
-============ RESTART: E:\Dev\ZakFarrow\COMP101\Farrow_Zak-CA03.py ============
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): a
+def writeMenu():
+    print("Main Menu-")
+    print("Option A: 1 to 24 months")
+    print("Option B: 3 to 18 years")
+    print("Option X: exit menu")
 
-Enter cat age in months: 3
-Human age in years: 3
+    option = (input("Select menu option (Enter A, B or X): "))
+    print("")
+    return option
 
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): 
-============ RESTART: E:\Dev\ZakFarrow\COMP101\Farrow_Zak-CA03.py ============
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): b
+def writeResult(lifeStage, humanAge):
+    print("")
+    print ("Your cat is at life stage:", lifeStage)
+    print ("Human age in years:", humanAge)
+    print("")
 
-Enter cat age in years: 3
+option = writeMenu().upper()
 
-Your cat is at life stage: af
-Human age in years: 28
+while option not in "X":
+    if option == "A":
+        catAge = int(input("Enter cat age in months: "))
+        if catAge < 4:
+            humanAge = catAge
+            writeResult("Kitten", humanAge)
+            option = writeMenu().upper()
+        elif catAge > 3 and catAge < 8:
+            humanAge = catAge + 4
+            writeResult("Kitten", humanAge)
+            option = writeMenu().upper()
+        elif catAge > 7 and catAge < 25:
+            humanAge = catAge + 3
+            writeResult("Junior", humanAge)
+            option = writeMenu().upper()
 
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): a
+    elif option == "B":
+        catAge = int(input("Enter cat age in years: "))
+        catThree = 3
+        humanAge = (catAge - catThree) * 4 + 28
+        lifeStage = "Geriatric"
+        if catAge >= 3 and catAge <= 6:
+            lifeStage="Prime"
+        elif catAge >= 7 and catAge <= 10:
+            lifeStage="Mature"
+        elif catAge >= 11 and catAge <= 14:
+            lifeStage="Senior"
+        writeResult(lifeStage, humanAge)
+        option = writeMenu().upper()
+        
 
-Enter cat age in months: 3
 
-Your cat is at life stage: Kitten
-Human age in years: 3
 
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): x
 
->>> 
-============ RESTART: E:\Dev\ZakFarrow\COMP101\Farrow_Zak-CA03.py ============
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): b
 
-Enter cat age in years: 18
 
-Your cat is at life stage: Geriatric
-Human age in years: 88
 
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): a
-
-Enter cat age in months: 5
-
-Your cat is at life stage: Kitten
-Human age in years: 9
-
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): a
-
-Enter cat age in months: 9
-
-Your cat is at life stage: Junior
-Human age in years: 12
-
-Main Menu-
-Option A: 1 to 24 months
-Option B: 3 to 18 years
-Option X: exit menu
-Select menu option (Enter A, B or X): 
